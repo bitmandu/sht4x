@@ -1,0 +1,28 @@
+menu "sht4x"
+
+    config SHT4X_PORT
+        int "I2C Master Port"
+	range 0 1
+        default 0
+        help
+            I2C master port number.
+
+    config SHT4X_SDA
+        int "I2C SDA GPIO"
+        default 6
+        help
+            I2C SDA GPIO number.
+
+    config SHT4X_SCL
+        int "I2C SCL GPIO"
+        default 5
+        help
+            I2C SCL GPIO number.
+
+    config SHT4X_ADDR
+        hex "SHT4X I2C Address"
+        default 0x44
+        help
+            SHT4x I2C device address.
+
+endmenu
