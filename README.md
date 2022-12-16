@@ -1,15 +1,16 @@
 # sht4x
 
 This is an example [ESP-IDF][1] application for the [Sensirion
-SHT4x][2] humidity and temperature sensor.
+SHT4x][2] temperature and humidity sensor.
 
 ## Configuration
 
     $ idf.py menuconfig
 
 In the `sht4x` menu, set the GPIO pins for your I²C SDA and SCL lines.
+
 In most cases, you won't have to change the I²C master port number or
-address.
+device address.
 
 ## Example output
 
@@ -33,23 +34,24 @@ address.
     I (21338) sht4x: measurement: 63 f4 bf 58 24 13: t=25588, rh=22564 ticks
     ** 4 23.328375 37.038071
 
-On the third iteration, the heater capibility of the SHT4x sensor is used.
+On the third iteration, the heating capibility of the SHT4x sensor is
+activated.
 
 A Python script is provided to visualize the temperature and humidity in real-time.
 
     $ ./scripts/plot.py
 
-![Plot of real-time data from the SHT4x sensor](docs/sht4x-plot.png "SHT4x Plot")
+![Real-time SHT4x sensor data](scripts/example-plot.png "Real-time SHT4x sensor data")
 
 ## Component installation
 
 See the [component documunation](components/sht4x/README.md) to use
 this code as a component in your own project.
 
-## Contributing
+## Help / Contributing
 
-[Pull requests][pulls] and [issue/bug reports][issues] are very much
-encouraged!
+[Bug reports][issues] and [pull requests][pulls] are very much
+encouraged.
 
 ## License
 

@@ -1,0 +1,17 @@
+# idf_component.yml
+
+dependencies:
+  idf:
+    version: ">=4.1.0"
+
+  # hardware dependency stubs
+  driver:
+    path: ../../../stubs/driver
+  hal:
+    path: ../../../stubs/hal
+  soc:
+    path: ../../../stubs/soc
+
+  # components
+  sht4x:
+    path: ../../components/sht4x

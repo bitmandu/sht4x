@@ -45,28 +45,28 @@ address.
 
 In addition to `sht4x_measure()`, this component provides
 `sht4x_measure_heat()` that activates the on-board heater of the
-sensor before measuring the data.
+sensor before doing a measurement.
 
 ````c
 esp_err_t sht4x_heat_measure(sht4x_heat_t heat, float *temperature, float *humidity);
 ````
 
-The parameter `heat` is one of the following options.
+The parameter `heat` has the following options.
 
 | `heat`              | Power (mW) | Duration (s) |
 |---------------------|------------|--------------|
-| SHT4X_HEAT_NONE     |          0 |            0 |
-| SHT4X_HEAT_200_1000 |        200 |          1.0 |
-| SHT4X_HEAT_200_100  |        200 |          0.1 |
-| SHT4X_HEAT_110_1000 |        110 |          1.0 |
-| SHT4X_HEAT_110_100  |        110 |          0.1 |
-| SHT4X_HEAT_20_1000  |         20 |          1.0 |
-| SHT4X_HEAT_20_100   |         20 |          0.1 |
+| SHT4X_HEAT_NONE     | 0          | 0            |
+| SHT4X_HEAT_200_1000 | 200        | 1.0          |
+| SHT4X_HEAT_200_100  | 200        | 0.1          |
+| SHT4X_HEAT_110_1000 | 110        | 1.0          |
+| SHT4X_HEAT_110_100  | 110        | 0.1          |
+| SHT4X_HEAT_20_1000  | 20         | 1.0          |
+| SHT4X_HEAT_20_100   | 20         | 0.1          |
 
-## Contributing
+## Help / Contributing
 
-[Pull requests][pulls] and [issue/bug reports][issues] are very much
-encouraged!
+[Bug reports][issues] and [pull requests][pulls] are very much
+encouraged.
 
 ## License
 

@@ -1,3 +1,4 @@
 build/
 sdkconfig*
 .pre-commit-config.yaml
+dependencies.lock
