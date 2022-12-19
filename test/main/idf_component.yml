@@ -6,11 +6,14 @@ dependencies:
 
   # hardware dependency stubs
   driver:
-    path: ../../../stubs/driver
+    git: https://github.com/bitmandu/esp-idf-stubs.git
+    path: driver
   hal:
-    path: ../../../stubs/hal
+    git: https://github.com/bitmandu/esp-idf-stubs.git
+    path: hal
   soc:
-    path: ../../../stubs/soc
+    git: https://github.com/bitmandu/esp-idf-stubs.git
+    path: soc
 
   # components
   sht4x:
