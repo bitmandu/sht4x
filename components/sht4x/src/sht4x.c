@@ -20,7 +20,6 @@ struct sht4x {
     uint8_t address;
 };
 
-#define SHT4X_NUM_RETRY 3
 #define SHT4X_CMD_SERIAL 0x89
 #define SHT4X_CMD_RESET 0x94
 static const uint8_t SHT4X_CMD_MEASURE[] = {
@@ -112,7 +111,7 @@ static TickType_t heat_delay(sht4x_heat_t heat)
 static esp_err_t sht4x_write_read(sht4x_t sht4x, uint8_t cmd, uint8_t *data,
                                   size_t len, TickType_t delay_ms)
 {
-    int num_retry = SHT4X_NUM_RETRY;
+    uint32_t num_retry = CONFIG_SHT4X_NUM_RETRY + 1;
 
     do {
         ESP_RETURN_ON_ERROR(i2c_master_write_to_device(sht4x->port, sht4x->address,
@@ -130,7 +129,7 @@ static esp_err_t sht4x_write_read(sht4x_t sht4x, uint8_t cmd, uint8_t *data,
         }
 
         ESP_LOGE(TAG, "... retrying to read from sensor");
-        vTaskDelay(10 / portTICK_PERIOD_MS);
+        vTaskDelay(CONFIG_SHT4X_RETRY_DELAY_MS / portTICK_PERIOD_MS);
     } while (--num_retry);
 
     return ESP_ERR_TIMEOUT;

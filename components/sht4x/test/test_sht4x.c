@@ -17,7 +17,6 @@ static sht4x_t sht4x;
 #define SHT4X_CMD_SERIAL 0x89
 #define SHT4X_CMD_MEASURE 0xfd
 #define SHT4X_CMD_RESET 0x94
-#define SHT4X_NUM_RETRY 3
 
 #define SDA GPIO_NUM_6
 #define SDL GPIO_NUM_5
@@ -144,7 +143,7 @@ TEST_CASE("sht4x_heat_measure_raw() should timeout if unable to read data from s
     read_cb_data = bad_crc;
     i2c_master_read_from_device_AddCallback(read_cb);
 
-    for (int i = 0; i < SHT4X_NUM_RETRY; ++i) {
+    for (int i = 0; i <= CONFIG_SHT4X_NUM_RETRY; ++i) {
         i2c_master_write_to_device_ExpectAndReturn(PORT, CONFIG_SHT4X_ADDRESS,
                                                    &cmd, 1, portMAX_DELAY, ESP_OK);
         i2c_master_read_from_device_ExpectAndReturn(PORT, CONFIG_SHT4X_ADDRESS,

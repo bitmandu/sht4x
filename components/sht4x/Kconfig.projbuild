@@ -6,4 +6,17 @@ menu "sht4x"
         help
             SHT4x I2C device address.
 
+    config SHT4X_NUM_RETRY
+        int "Number of retry attempts"
+        range 0 100
+        default 3
+        help
+            Number of times to retry reading sensor data before returning an error.
+
+    config SHT4X_RETRY_DELAY_MS
+        int "Time delay [ms] between retry attempts"
+        default 10
+        help
+            Time (in ms) to wait between retry attempts.
+
 endmenu
